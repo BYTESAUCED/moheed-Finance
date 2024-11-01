@@ -1,6 +1,7 @@
 package com.ag_apps.spending_tracker.spending_overview.presentation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -24,6 +25,9 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AutoGraph
+import androidx.compose.material.icons.filled.MonetizationOn
+import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
@@ -73,6 +77,7 @@ fun SpendingOverviewScreenCore(
     viewModel: SpendingOverviewViewModel = koinViewModel(),
     onBalanceClick: () -> Unit,
     onAddSpendingClick: () -> Unit,
+    goToGraphScreen: () -> Unit
 ) {
 
     LaunchedEffect(true) {
@@ -88,9 +93,11 @@ fun SpendingOverviewScreenCore(
         onAddSpendingClick = onAddSpendingClick,
         onDeleteSpendingClick = {
             viewModel.onAction(SpendingOverviewAction.OnDeleteSpending(it))
-        }
+        },
+        goToGraphScreen = goToGraphScreen
     )
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -100,6 +107,7 @@ private fun SpendingOverviewScreen(
     onBalanceClick: () -> Unit,
     onAddSpendingClick: () -> Unit,
     onDeleteSpendingClick: (Int) -> Unit,
+    goToGraphScreen: () -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(
         state = rememberTopAppBarState()
@@ -111,6 +119,18 @@ private fun SpendingOverviewScreen(
         ),
         floatingActionButton = {
             Column {
+                // Add button for navigating to the graph screen
+                FloatingActionButton(
+                    onClick = { goToGraphScreen() },
+//                    backgroundColor = MaterialTheme.colorScheme.primary,
+                    contentColor = Color.Black
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.AutoGraph, // Use an appropriate icon for the graph
+                        contentDescription = "Go to Graph Screen"
+                    )
+                }
+                Spacer(modifier = Modifier.height(16.dp)) // Space between buttons
                 FloatingActionButton(
                     onClick = { onAddSpendingClick() }
                 ) {
@@ -152,11 +172,8 @@ private fun SpendingOverviewScreen(
             modifier = Modifier.padding(paddingValues),
             onDeleteSpending = onDeleteSpendingClick
         )
-
     }
-
 }
-
 @Composable
 fun SpendingList(
     modifier: Modifier = Modifier,
@@ -327,11 +344,11 @@ fun SpendingOverviewTopBar(
                     .clickable { onBalanceClick() },
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text = "$",
-                    fontSize = 26.sp,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold
+                Icon(
+                    imageVector = Icons.Default.MonetizationOn,
+                    contentDescription = "Add Balance",
+                    modifier = Modifier.size(30.dp),
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         },
@@ -418,6 +435,8 @@ private fun SpendingOverviewScreenPreview() {
             onAction = {},
             onBalanceClick = {},
             onAddSpendingClick = {},
-            onDeleteSpendingClick = {})
+            onDeleteSpendingClick = {},
+            goToGraphScreen = {}
+            )
     }
 }
