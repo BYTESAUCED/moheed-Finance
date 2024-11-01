@@ -3,9 +3,7 @@ package com.ag_apps.spending_tracker.core.data.local
 import android.content.SharedPreferences
 import com.ag_apps.spending_tracker.core.domain.CoreRepository
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 class CoreRepositoryImpl(
     private val prefs: SharedPreferences
 ) : CoreRepository {

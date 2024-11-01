@@ -12,9 +12,7 @@ import com.ag_apps.spending_tracker.spending_overview.presentation.util.randomCo
 import kotlinx.coroutines.launch
 import java.time.ZonedDateTime
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 class SpendingOverviewViewModel(
     private val spendingDataSource: LocalSpendingDataSource,
     private val coreRepository: CoreRepository

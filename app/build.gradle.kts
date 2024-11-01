@@ -29,6 +29,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+                    isDebuggable = false
+
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -82,4 +85,13 @@ dependencies {
 
     // Koin
     implementation(libs.bundles.koin)
+
+  // vico
+        implementation(libs.vico.compose)
+        implementation(libs.vico.compose.m2)
+        implementation(libs.vico.compose.m3)
+        implementation(libs.vico.core)
+        implementation(libs.vico.views)
+
+
 }

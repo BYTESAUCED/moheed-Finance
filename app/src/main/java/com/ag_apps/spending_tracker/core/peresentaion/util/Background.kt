@@ -8,9 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 @Composable
 fun Background(modifier: Modifier = Modifier) {
     Box(

@@ -65,9 +65,7 @@ import com.ag_apps.spending_tracker.core.peresentaion.util.Background
 import com.ag_apps.spending_tracker.spending_overview.presentation.util.formatDate
 import org.koin.androidx.compose.koinViewModel
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 
 @Composable
 
@@ -232,8 +230,8 @@ fun SpendingItem(
                     value = "$${spending.price}"
                 )
                 SpendingInfo(
-                    name = "Kilograms",
-                    value = "${spending.kilograms}"
+                    name = "Is plastic",
+                    value = if (spending.isPlastic) "Yes" else "No"
                 )
                 SpendingInfo(
                     name = "Quantity",

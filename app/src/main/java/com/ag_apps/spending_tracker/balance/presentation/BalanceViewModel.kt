@@ -8,9 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.ag_apps.spending_tracker.core.domain.CoreRepository
 import kotlinx.coroutines.launch
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 class BalanceViewModel(
     private val coreRepository: CoreRepository
 ) : ViewModel() {
