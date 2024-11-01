@@ -35,9 +35,7 @@ import com.ag_apps.spending_tracker.core.peresentaion.ui.theme.montserrat
 import com.ag_apps.spending_tracker.core.peresentaion.util.Background
 import org.koin.androidx.compose.koinViewModel
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 
 @Composable
 fun BalanceScreenCore(

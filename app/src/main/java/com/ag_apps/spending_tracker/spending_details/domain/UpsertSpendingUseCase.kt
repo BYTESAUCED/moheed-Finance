@@ -3,9 +3,7 @@ package com.ag_apps.spending_tracker.spending_details.domain
 import com.ag_apps.spending_tracker.core.domain.LocalSpendingDataSource
 import com.ag_apps.spending_tracker.core.domain.Spending
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 class UpsertSpendingUseCase(
     private val spendingDataSource: LocalSpendingDataSource
 ) {
@@ -16,9 +14,6 @@ class UpsertSpendingUseCase(
             return false
         }
         if (spending.price < 0) {
-            return false
-        }
-        if (spending.kilograms < 0) {
             return false
         }
         if (spending.quantity < 0) {

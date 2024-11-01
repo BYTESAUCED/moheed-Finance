@@ -12,9 +12,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import java.time.ZonedDateTime
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 class SpendingDetailsViewModel(
     private val upsertSpendingUseCase: UpsertSpendingUseCase
 ) : ViewModel() {
@@ -27,9 +25,10 @@ class SpendingDetailsViewModel(
 
     fun onAction(action: SpendingDetailsAction) {
         when (action) {
-            is SpendingDetailsAction.UpdateKilograms -> {
+
+            is SpendingDetailsAction.UpdateIsPlastic -> {
                 state = state.copy(
-                    kilograms = action.newKilograms
+                    isPlastic = action.newIsPlastic
                 )
             }
 
@@ -68,7 +67,7 @@ class SpendingDetailsViewModel(
             spendingId = null,
             name = state.name,
             price = state.price,
-            kilograms = state.kilograms,
+            isPlastic = state.isPlastic,
             quantity = state.quantity,
             dateTimeUtc = ZonedDateTime.now()
         )

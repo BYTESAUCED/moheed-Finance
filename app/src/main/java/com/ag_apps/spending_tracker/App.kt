@@ -8,9 +8,7 @@ import com.ag_apps.spending_tracker.spending_overview.di.spendingOverviewModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-/**
- * @author Ahmed Guedmioui
- */
+//
 class App: Application() {
 
     override fun onCreate() {
