@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "moheed-finance"
+rootProject.name = "Spending Tracker"
 include(":app")
  

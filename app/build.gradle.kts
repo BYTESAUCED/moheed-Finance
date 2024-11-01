@@ -1,22 +1,25 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrainsKotlinSerialization)
     id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.example.moheed_finance"
-    compileSdk = 35
+    namespace = "com.ag_apps.spending_tracker"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.moheed_finance"
-        minSdk = 24
+        applicationId = "com.ag_apps.spending_tracker"
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -66,13 +69,17 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Extended Icons
     implementation(libs.androidx.material.icons.extended)
+
+    // Navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+
+    // Room
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
+
+    // Koin
     implementation(libs.bundles.koin)
-
-    implementation("androidx.compose.ui:ui-text-google-fonts:1.7.3")
-
 }
