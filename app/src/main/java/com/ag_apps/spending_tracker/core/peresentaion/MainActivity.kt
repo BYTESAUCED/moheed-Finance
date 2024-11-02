@@ -17,6 +17,7 @@ import com.ag_apps.spending_tracker.balance.presentation.BalanceScreenCore
 import com.ag_apps.spending_tracker.core.peresentaion.ui.theme.SpendingTrackerTheme
 import com.ag_apps.spending_tracker.core.peresentaion.util.Background
 import com.ag_apps.spending_tracker.core.peresentaion.util.Screen
+import com.ag_apps.spending_tracker.graph_screen.presentation.GraphScreenDisplay
 import com.ag_apps.spending_tracker.spending_details.presentation.SpendingDetailsScreenCore
 import com.ag_apps.spending_tracker.spending_overview.presentation.SpendingOverviewScreenCore
 
@@ -40,7 +41,8 @@ class MainActivity : ComponentActivity() {
         NavHost(
             modifier = modifier,
             navController = navController,
-            startDestination = Screen.SpendingOverview
+            startDestination = Screen.SpendingOverview,
+
         ) {
 
             composable<Screen.SpendingOverview> {
@@ -50,6 +52,9 @@ class MainActivity : ComponentActivity() {
                     },
                     onAddSpendingClick = {
                         navController.navigate(Screen.SpendingDetails(-1))
+                    },
+                    goToGraphScreen = {
+                        navController.navigate(Screen.GraphScreenDisplay)
                     }
                 )
             }
@@ -70,6 +75,13 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
+            composable<Screen.GraphScreenDisplay> {
+                GraphScreenDisplay(
+                    changeScreen = {
+                        navController.navigate(Screen.SpendingOverview)
+                    }
+                )
+            }
         }
     }
 

@@ -12,4 +12,7 @@ sealed interface Screen {
     @kotlinx.serialization.Serializable
     data object Balance: Screen
 
+    @kotlinx.serialization.Serializable
+    data object GraphScreenDisplay: Screen
+
 }

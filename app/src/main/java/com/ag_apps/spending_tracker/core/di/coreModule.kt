@@ -24,7 +24,7 @@ val coreModule = module {
         ).build()
     }
 
-    single { get<SpendingDatabase>().dao }
+    single { get<SpendingDatabase>().dao() }
 
     single {
         androidApplication().getSharedPreferences(
