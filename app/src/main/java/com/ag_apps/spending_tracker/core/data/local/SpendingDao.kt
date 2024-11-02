@@ -8,6 +8,23 @@ import androidx.room.Upsert
 @Dao
 interface SpendingDao {
 
+    //    @Upsert
+//    suspend fun upsertSpending(entity: SpendingEntity)
+//
+//    @Query("SELECT * FROM SpendingEntity")
+//    suspend fun getAllSpendings(): List<SpendingEntity>
+//
+//    @Query("SELECT * FROM spendingentity WHERE spendingId = :id")
+//    suspend fun getSpending(id: Int): SpendingEntity
+//
+//    @Query("SELECT dateTimeUtc FROM spendingEntity")
+//    suspend fun getAllDates(): List<String>
+//
+//    @Query("SELECT SUM(price) FROM SpendingEntity")
+//    suspend fun getSpendBalance(): Double?
+//
+//    @Query("DELETE FROM spendingEntity WHERE spendingId = :id")
+//    suspend fun deleteSpending(id: Int)
     @Upsert
     suspend fun upsertSpending(entity: SpendingEntity)
 

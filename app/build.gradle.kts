@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.espresso.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -86,12 +87,14 @@ dependencies {
     // Koin
     implementation(libs.bundles.koin)
 
-  // vico
-        implementation(libs.vico.compose)
-        implementation(libs.vico.compose.m2)
-        implementation(libs.vico.compose.m3)
-        implementation(libs.vico.core)
-        implementation(libs.vico.views)
+    implementation(libs.ui)
+    implementation("androidx.compose.material:material:1.7.5")
+    implementation(libs.androidx.activity.compose.v131)
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation("androidx.camera:camera-view:1.4.0")
+    implementation("androidx.camera:camera-extensions:1.4.0")
 
 
 }

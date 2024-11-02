@@ -1,6 +1,8 @@
 package com.ag_apps.spending_tracker.core.data
 
+import android.content.Context
 import com.ag_apps.spending_tracker.core.data.local.SpendingDao
+import com.ag_apps.spending_tracker.core.data.local.SpendingDatabase
 import com.ag_apps.spending_tracker.core.data.local.SpendingEntity
 import com.ag_apps.spending_tracker.core.domain.LocalSpendingDataSource
 import com.ag_apps.spending_tracker.core.domain.Spending
@@ -16,6 +18,19 @@ import java.time.ZonedDateTime
 class RoomSpendingDataSource(
     private val dao: SpendingDao
 ) : LocalSpendingDataSource {
+
+    companion object {
+        @Volatile
+        private var INSTANCE: RoomSpendingDataSource? = null
+
+        fun getInstance(context: Context): RoomSpendingDataSource {
+            return INSTANCE ?: synchronized(this) {
+                val dao = SpendingDatabase.getInstance(context).dao()
+                INSTANCE = RoomSpendingDataSource(dao)
+                INSTANCE!!
+            }
+        }
+    }
 
     override suspend fun getAllSpendings(): List<Spending> {
         return dao.getAllSpendings().map { it.toSpending() }
